@@ -1,12 +1,15 @@
 # Jogo da Onça
 
 O jogo é composto por dois jogadores, sendo um deles responsável pela onça
-e o outro pela matilha de cachorros. O jogador com a onça deve capturar cinco
+e o outro pela matilha de cachorros. 
+O jogador com a onça deve capturar cinco
 cachorros. O jogador com a matilha deve encurralar a onça, deixando-a sem
 possibilidade de se movimentar pelo tabuleiro. Ganha quem conseguir alcançar
-o seu objetivo primeiro. As peças podem ser movidas em qualquer direção pelo
+o seu objetivo primeiro. 
+As peças podem ser movidas em qualquer direção pelo
 tabuleiro (frente, trás, lados ou diagonal). O jogador com a onça sempre
-começa o jogo. A captura acontece quando a peça da onça salta por um dos
+começa o jogo. 
+A captura acontece quando a peça da onça salta por um dos
 cachorros e para numa casa vazia, similar ao jogo de Damas e, assim como
 ocorre em Damas, é permitido captura simultânea.
 
