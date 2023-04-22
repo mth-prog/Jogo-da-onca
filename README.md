@@ -33,21 +33,22 @@ momento que ocorrer.
 <br><br>
 ## Especificação de Resquisitos
 
-| ## | Requisitos Funcionais                                              |
-|---|--------------------------------------------------------------------|
-| 1 | Registro e autenticação de usuários                                 |
-| 2 | Criação de jogos                                                    |
-| 3 | Seleção de adversários disponíveis                                  |
-| 4 | Início de jogo                                                      |
-| 5 | Movimentação de peças                                               |
-| 6 | Captura de peças adversárias                                         |
-| 7 | Promoção de peças para onça na fase de voo                           |
-| 8 | Finalização do jogo quando todas as peças do adversário são capturadas ou bloqueadas |
+|     | Requisitos Funcionais                                              |
+|-----|--------------------------------------------------------------------|
+| RF1 | Registro e autenticação de usuários                                 |
+| RF2 | Criação de jogos                                                    |
+| RF3 | Seleção de adversários disponíveis                                  |
+| RF4 | Início de jogo                                                      |
+| RF5 | Movimentação de peças                                               |
+| RF6 | Captura de peças adversárias                                         |
+| RF7 | Promoção de peças para onça na fase de voo                           |
+| RF8 | Finalização do jogo quando todas as peças do adversário são capturadas ou bloqueadas |
 
-| ## | Requisitos Não Funcionais |
-|---|---------------------------|
-| 1 | Segurança                 |
-| 2 | Desempenho                |
-| 3 | Confiabilidade            |
-| 4 | Escalabilidade            |
-| 5 | Usabilidade               |
+|     | Requisitos Não Funcionais |
+|-----|---------------------------|
+| RF9 | Segurança                 |
+| RF10| Desempenho                |
+| RF11| Confiabilidade            |
+| RF12| Escalabilidade            |
+| RF13| Usabilidade               |
+
