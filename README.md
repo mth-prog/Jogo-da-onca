@@ -30,7 +30,7 @@ Se durante uma partida for comprovado que uma
 posição se repetiu 4 vezes, a partida estará empatada. Também chamado
 de empate pela repetição de lances, deve ser reclamado pelo jogador no
 momento que ocorrer. 
-
+<br><br>
 ## Especificação de Resquisitos
 
 | ## | Requisitos Funcionais                                              |
