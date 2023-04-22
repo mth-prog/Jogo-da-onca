@@ -16,9 +16,9 @@ Capturar todas as peças do adversário ou bloqueá-lo para que ele não possa m
 ## Peças e  Movimentação
 
 ###
-*Onça:* O jogador que controla a Onça tem como objetivo capturar cinco cachorros do adversário, e pode se mover em qualquer direção diagonal para uma casa vazia adjacente, e pode saltar sobre as peças adversárias em uma única jogada.
+**Onça:** O jogador que controla a Onça tem como objetivo capturar cinco cachorros do adversário, e pode se mover em qualquer direção diagonal para uma casa vazia adjacente, e pode saltar sobre as peças adversárias em uma única jogada.
 
-*Cachorros:* O jogador que controla os cachorros tem como objetivo bloquear a movimentação da onça, impedindo que ela se mova para uma casa vazia adjacente. Os cachorros podem se mover em qualquer direção diagonal para uma casa vazia adjacente, assim como a onça, mas não podem saltar sobre as peças adversárias.
+**Cachorros:** O jogador que controla os cachorros tem como objetivo bloquear a movimentação da onça, impedindo que ela se mova para uma casa vazia adjacente. Os cachorros podem se mover em qualquer direção diagonal para uma casa vazia adjacente, assim como a onça, mas não podem saltar sobre as peças adversárias.
 
 ## Fim de Jogo
 
