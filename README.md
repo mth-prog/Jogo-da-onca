@@ -52,3 +52,5 @@ momento que ocorrer.
 | RF12| Escalabilidade            |
 | RF13| Usabilidade               |
 
+# Anexos
+https://www.figma.com/file/lirMVMoYpfZita4FG2b7Jp/CRUD?node-id=0-1&t=Wmu22dLC5KMH7KLd-0
