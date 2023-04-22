@@ -23,9 +23,11 @@ Capturar todas as peças do adversário ou bloqueá-lo para que ele não possa m
 
 ## Fim de Jogo
 
-### Caso Vitória: O jogador vence quando captura cinco cachorros do adversário do adversário ou bloqueia seu adversário de tal forma que ele não possa mais mover suas peças. Se ambos os jogadores estiverem na fase de voo e nenhum jogador conseguir vencer em 20 jogadas consecutivas, o jogo é considerado um empate.
+### Caso Vitória: 
+O jogador vence quando captura cinco cachorros do adversário do adversário ou bloqueia seu adversário de tal forma que ele não possa mais mover suas peças. Se ambos os jogadores estiverem na fase de voo e nenhum jogador conseguir vencer em 20 jogadas consecutivas, o jogo é considerado um empate.
 
-### Caso de empate: se durante uma partida for comprovado que uma
+### Caso de empate: 
+Se durante uma partida for comprovado que uma
 posição se repetiu 4 vezes, a partida estará empatada. Também chamado
 de empate pela repetição de lances, deve ser reclamado pelo jogador no
 momento que ocorrer. 
