@@ -41,8 +41,7 @@ momento que ocorrer.
 | RF4 | Início de jogo                                                      |
 | RF5 | Movimentação de peças                                               |
 | RF6 | Captura de peças adversárias                                         |
-| RF7 | Promoção de peças para onça na fase de voo                           |
-| RF8 | Finalização do jogo quando todas as peças do adversário são capturadas ou bloqueadas |
+| RF7 | Finalização do jogo quando todas as peças do adversário são capturadas ou bloqueadas |
 
 |     | Requisitos Não Funcionais |
 |-----|---------------------------|
