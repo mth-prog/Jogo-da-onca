@@ -35,13 +35,12 @@ momento que ocorrer.
 
 |     | Requisitos Funcionais                                              |
 |-----|--------------------------------------------------------------------|
-| RF1 | Registro e autenticação de usuários                                 |
-| RF2 | Criação de jogos                                                    |
+| RF1 | O usuário deve Registrar e autenticar no Sistema                   |
+| RF2 | O usuário deve criar uma partida                                    |
 | RF3 | Seleção de adversários disponíveis                                  |
-| RF4 | Início de jogo                                                      |
-| RF5 | Movimentação de peças                                               |
-| RF6 | Captura de peças adversárias                                         |
-| RF7 | Finalização do jogo quando todas as peças do adversário são capturadas ou bloqueadas |
+| RF4 | O usuário deve movimentar as peças                                  |
+| RF5 | O usuário deve  CapturaR peças adversárias                          |
+| RF6 | O usuário deve receber uma finalização do jogo quando todas as peças do adversário são capturadas ou bloqueadas |
 
 |     | Requisitos Não Funcionais |
 |-----|---------------------------|
