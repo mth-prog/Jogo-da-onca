@@ -54,3 +54,4 @@ momento que ocorrer.
 https://www.figma.com/file/zrfygafUcHBCc2I6Ea66m8/JOGO-DA-ON%C3%87A?node-id=4-67&t=tVwjm1CcruMxOlTQ-0
 https://www.figma.com/file/lirMVMoYpfZita4FG2b7Jp/CRUD?node-id=0-1&t=Wmu22dLC5KMH7KLd-0
 http://www.mae.ufpr.br/downloads/atividade_jogo_da_onca.pdf
+https://dev.azure.com/matheusfagundes2/Jogo_da_on%C3%A7a/_wiki/wikis
