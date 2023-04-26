@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+    background-color: #2D283D;
+}
+
+main {
+    background-color: #A987A8;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.skins-form {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 15px;
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    padding: 10px 15px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+td {
+    color: #000000;
+    font-weight: 600;
+}
