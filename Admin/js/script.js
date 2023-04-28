@@ -1,20 +1,38 @@
-const AdminCrud = async () => {
-    const response = await fetch('http://localhost:3333/api/user');
-    const get_result = await response.json();
-    return get_result;
-};
+if (document.body.classList.contains("body-temas-skins")) {
+    inpSkinCachorro.onchange = (e) => {
+        const [file] = inpSkinCachorro.files;
+        if (file) {
+            cachorroPreview.src = URL.createObjectURL(file);
+        }
+    };
 
-//criar o elemento no doc passando como paramentro ele
-const createElement = (tag, innerText = '') => {
-    const element = document.createElement(tag);
-    element.innerText = innerText;
+    inpSkinOnca.onchange = (e) => {
+        const [file] = inpSkinOnca.files;
+        if (file) {
+            oncaPreview.src = URL.createObjectURL(file);
+        }
+    };
 
-    return element;
-};
-//criar a linha no html 
-const creatrow = (linha) => {
-    const {id , user} = linha;
+    inpFundoTabuleiro.onchange = (e) => {
+        const [file] = inpFundoTabuleiro.files;
+        if (file) {
+            tabuleiroPreview.src = URL.createObjectURL(file);
+        }
+    };
 
-    const tr = createElement('tr');
-    const tdTitulo = createElement('td', 'titulo da tablea'); 
-};
+    inpFundoPlacar.onchange = (e) => {
+        const [file] = inpFundoPlacar.files;
+        if (file) {
+            placarPreview.src = URL.createObjectURL(file);
+        }
+    };
+}
+
+if (document.body.classList.contains("body-anuncios")) {
+    inpAnuncioImg.onchange = (e) => {
+        const [file] = inpAnuncioImg.files;
+        if (file) {
+            anuncioPreview.src = URL.createObjectURL(file);
+        }
+    };
+}

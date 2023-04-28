@@ -1,48 +1,47 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand&display=swap');
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
-
 
 body {
-    background-color: #2D283D;
-}
-
-main {
-    background-color: #A987A8;
-    border-radius: 8px;
-    padding: 20px;
-    width: 90%;
-    margin: 40px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-.skins-form {
+    background-image: url(../img/fundo.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
     display: flex;
-    margin-bottom: 10px;
-    gap: 15px;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
+.container {
+    border-radius: 10px;
+    background-color: #fff;
+    width: 90%;
+    height: 80%;
 }
 
-td, th {
-    padding: 10px 15px;
-    border: 1px solid #000000;
-    text-align: center;
+.amodal {
+    cursor: pointer;
 }
 
-td {
-    color: #000000;
-    font-weight: 600;
+.navbar-toggler {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    border: 1px solid #fff;
+    width: 50px;
+}
+
+.skinPreview {
+    width: 40px;
+    height: 40px;
+}
+
+#anuncioPreview {
+    max-width: 70px;
+    max-height: 70px;
 }
