@@ -9,7 +9,7 @@ const pool = require('./connectionBd');
 //mostra todos os usuarios
 const getAll = async () => {
     const select = await pool.connect();
-    const res = await select.query('SELECT * FROM USERS');
+    const res = await select.query('SELECT * FROM JOGADOR');
     return res.rows;
 };
 
@@ -17,7 +17,7 @@ const getAll = async () => {
 const create = async (user) => {
     const { UserToCreate } = user;
 
-    const str_query = `INSERT INTO USERS (username) VALUES ('${UserToCreate}')`;
+    const str_query = `INSERT INTO JOGADOR (username) VALUES ('${UserToCreate}')`;
     const connect = await pool.connect();
     const createdUser = await connect.query(str_query);
 
@@ -29,7 +29,7 @@ const create = async (user) => {
 // [ ] ver se é melhor por nome
 
 const deleteUser = async (id) => {
-    const str_query = `DELETE FROM USERS WHERE user_id = ${id}`;
+    const str_query = `DELETE FROM JOGADOR WHERE user_id = ${id}`;
     const connect = await pool.connect();
     const deleteUser = await connect.query(str_query);
 
@@ -40,10 +40,9 @@ const updateUser = async (id, User) => {
     
     const { UpdateName } = User;
 
-    const str_query = `UPDATE USERS SET username = '${UpdateName}' WHERE user_id = ${id}`;
+    const str_query = `UPDATE JOGADOR SET username = '${UpdateName}' WHERE user_id = ${id}`;
     const connect = await pool.connect();
     const updateUser = await connect.query(str_query);
-
     return updateUser;
 };
 
