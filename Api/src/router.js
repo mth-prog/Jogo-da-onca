@@ -28,7 +28,7 @@ router.get('/admin', function(req, res) {
 //carteira parte da moeda (comprar e gastar)
 
 
-//skins e tabuleiros - aws s3 e rds
+//skins e tabuleiros -  [] s3 e [X] rds
 
 
 //temas
