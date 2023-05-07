@@ -10,7 +10,7 @@ const getAll = async (_req, res) => {
 };
 //createUser fazer para formulario de cadastro de jogadores novos e fazer o request por  body
 const createUser = async (req, res) => {
-    const create = await CrudModels.create(req.body);
+    const create = await CrudModels.create(req.query);
     return res.status(201).json(create);
 };
 
@@ -25,8 +25,8 @@ const deleteUser = async (req, res) => {
 // update precisa da url e body tbm 
 const updateUser = async (req, res) => {
     const { id } = req.params;
-    await CrudModels.updateUser(id, req.body);
-    return res.status(204).json(req.params);
+    const update = await CrudModels.updateUser(id, req.query);
+    return res.status(200).json(update);
 };
 
 

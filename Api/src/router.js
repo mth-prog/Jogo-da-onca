@@ -20,6 +20,8 @@ const router = express.Router();
 router.delete('/api/user/:id', JogadorControllers.deleteUser);
 router.put('/api/user/:id', JogadorControllers.updateUser);
 
+// Com query
+router.post('/api/user', JogadorControllers.createUser);
 // sem query 
 router.get('/api/user', JogadorControllers.getAll);
 

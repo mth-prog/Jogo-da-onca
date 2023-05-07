@@ -15,9 +15,9 @@ const getAll = async () => {
 
 //cria novos usuarios
 const create = async (user) => {
-    const { UserToCreate } = user;
+    const { Nome, IsActive, Login, Senha } = user;
 
-    const str_query = `INSERT INTO JOGADOR (username) VALUES ('${UserToCreate}')`;
+    const str_query = `INSERT INTO JOGADOR (Nome, IsActive, Login, Senha) VALUES ('${Nome}', ${IsActive}, '${Login}', '${Senha}')`;
     const connect = await pool.connect();
     const createdUser = await connect.query(str_query);
 
@@ -25,11 +25,9 @@ const create = async (user) => {
 
 };
 
-//deleta usuarios por id 
-// [ ] ver se é melhor por nome
 
 const deleteUser = async (id) => {
-    const str_query = `DELETE FROM JOGADOR WHERE user_id = ${id}`;
+    const str_query = `DELETE FROM JOGADOR WHERE id = ${id}`;
     const connect = await pool.connect();
     const deleteUser = await connect.query(str_query);
 
@@ -38,12 +36,40 @@ const deleteUser = async (id) => {
 
 const updateUser = async (id, User) => {
     
-    const { UpdateName } = User;
+    const { Nome, IsActive, Login, Senha } = User;
 
-    const str_query = `UPDATE JOGADOR SET username = '${UpdateName}' WHERE user_id = ${id}`;
+    var query = 'UPDATE JOGADOR SET';
+    var str_query;
+    
+    // melhorar essa merda
+
+    if (Nome != '' ) {
+        var qr_nome = `NOME = '${Nome}'`;
+        str_query = `${query} ${qr_nome}`;
+    }
+
+    if (IsActive != '') {
+        var qr_IsActive = `IsActive = ${IsActive}`;
+        str_query = `${str_query}, ${qr_IsActive}`;
+    }
+        
+    if (Login !=  '') {
+        var qr_Login = `Login = '${Login}'`;  
+        str_query = `${str_query}, ${qr_Login}`;
+    }
+
+    if (Senha != '' ) {
+        var qr_Senha = `Senha = '${Senha}'`;  
+        str_query = `${str_query}, ${qr_Senha}`;
+    }
+        
+    // colocando o where 
+    const final_str = `${str_query} WHERE id = ${id}`;
+    
     const connect = await pool.connect();
-    const updateUser = await connect.query(str_query);
+    const updateUser = await connect.query(final_str);
     return updateUser;
+
 };
 
 
