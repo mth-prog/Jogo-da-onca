@@ -9,21 +9,34 @@ sendo que as funcoes do das rotas ira ficar no controler que irá acessar o banc
 const path = require('path');
 
 const express = require('express');
-const crudControllers = require('./controllers/CrudControllers');
+const JogadorControllers = require('./controllers/JodadorControllers');
+const TemaControllers = require('./controllers/TemaControllers');
 
 const router = express.Router();
 
-//crud de jogador
-router.get('/api/user', crudControllers.getAll); //select
-router.post('/api/user', crudControllers.createUser);
-router.delete('/api/user/:id', crudControllers.deleteUser);
-router.put('/api/user/:id', crudControllers.updateUser);
+//CRUD JOGADOR
+
+//Route params
+router.delete('/api/user/:id', JogadorControllers.deleteUser);
+router.put('/api/user/:id', JogadorControllers.updateUser);
+
+// sem query 
+router.get('/api/user', JogadorControllers.getAll);
+
+
+//CRUD TEMA
+router.get('/api/tema', TemaControllers.getAll);
+router.post('/api/tema', TemaControllers.createTema);
+router.delete('/api/tema/:id', TemaControllers.deleteTema);
+router.put('/api/tema/:id', TemaControllers.updateTema);
 
 //admin router 
 
-router.get('/admin', function(req, res) {
-    res.sendFile(path.join(__dirname, '/admin/html/login.html'));
+router.get('/admin', (req, res) => {
+    res.sendFile(path('../Admin/html/index.html'));
 });
+
+// console.log(path.join(__filename));
 
 //carteira parte da moeda (comprar e gastar)
 

@@ -2,13 +2,13 @@
 vai vir as funçoes da router  
 fazendo conexao com bd 
 */
-const CrudModels = require('../models/CrudModels');
+const CrudModels = require('../models/JogadorModels');
 
 const getAll = async (_req, res) => {
     const crud = await CrudModels.getAll();
     return res.status(200).json(crud);
 };
-//create usar por parametro ou url
+//createUser fazer para formulario de cadastro de jogadores novos e fazer o request por  body
 const createUser = async (req, res) => {
     const create = await CrudModels.create(req.body);
     return res.status(201).json(create);
