@@ -62,17 +62,23 @@ https://dev.azure.com/matheusfagundes2/Jogo_da_on%C3%A7a/_wiki/wikis
 Dependências locais
 Então após baixar o repositório, deve se entrar na pasta api, não se esqueça de instalar as dependências locais do projeto:
 
-{ npm install }
+```
+npm install
+```
 
 Rodar o projeto
 Para rodar o projeto localmente, basta rodar o comando abaixo:
 
-{ npm run dev }
+```
+npm run dev
+```
 
 Isto irá automaticamente rodar a API no seguinte endereço:
 
+```
 http://localhost:3333/
 http://localhost:3333/api/user
+```
 
 Observações:
 
