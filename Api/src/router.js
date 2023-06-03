@@ -6,7 +6,6 @@ sendo que as funcoes do das rotas ira ficar no controler que irá acessar o banc
 - [] criar middleware para verificar se esta passando corretamente para o banco
 
 */
-const path = require('path');
 
 const express = require('express');
 const JogadorControllers = require('./controllers/JodadorControllers');
@@ -31,16 +30,6 @@ router.get('/api/tema', TemaControllers.getAll);
 router.post('/api/tema', TemaControllers.createTema);
 router.delete('/api/tema/:id', TemaControllers.deleteTema);
 router.put('/api/tema/:id', TemaControllers.updateTema);
-
-//admin router 
-
-router.get('/admin', (req, res) => {
-    res.sendFile(path('../Admin/html/index.html'));
-});
-
-// console.log(path.join(__filename));
-
-//carteira parte da moeda (comprar e gastar)
 
 
 //skins e tabuleiros -  [] s3 e [X] rds
