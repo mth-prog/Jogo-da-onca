@@ -11,6 +11,8 @@ const path = require('path');
 const express = require('express');
 const JogadorControllers = require('./controllers/JodadorControllers');
 const TemaControllers = require('./controllers/TemaControllers');
+const ImgUpload = require('./middleware/UploadSkinsControllers');
+
 
 const router = express.Router();
 
@@ -33,18 +35,20 @@ router.put('/api/tema/:id', TemaControllers.updateTema);
 //admin router 
 
 router.get('/admin', (req, res) => {
-    res.sendFile(path('../Admin/html/index.html'));
+    res.sendFile(path.join(__dirname, 'views', 'html', 'index.html'));
 });
 
-// console.log(path.join(__filename));
+// upload de imagens (skin carro)
 
-//carteira parte da moeda (comprar e gastar)
+router.get('/upload/skin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'html', 'teste.html'));
+});
 
+router.post('/upload/skin', ImgUpload.UploadFiles('image'), (req, res) => {
+    console.log('', req.body);
+    console.log('', req.files);
+    res.send({});
+});
 
-//skins e tabuleiros -  [] s3 e [X] rds
-
-
-//temas
-
-
+ 
 module.exports = router;
