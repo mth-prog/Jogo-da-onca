@@ -6,10 +6,13 @@ sendo que as funcoes do das rotas ira ficar no controler que irá acessar o banc
 - [] criar middleware para verificar se esta passando corretamente para o banco
 
 */
+const path = require('path');
 
 const express = require('express');
 const JogadorControllers = require('./controllers/JodadorControllers');
 const TemaControllers = require('./controllers/TemaControllers');
+const ImgUpload = require('./middleware/UploadSkinsControllers');
+
 
 const router = express.Router();
 
@@ -19,8 +22,6 @@ const router = express.Router();
 router.delete('/api/user/:id', JogadorControllers.deleteUser);
 router.put('/api/user/:id', JogadorControllers.updateUser);
 
-// Com query
-router.post('/api/user', JogadorControllers.createUser);
 // sem query 
 router.get('/api/user', JogadorControllers.getAll);
 
@@ -31,11 +32,23 @@ router.post('/api/tema', TemaControllers.createTema);
 router.delete('/api/tema/:id', TemaControllers.deleteTema);
 router.put('/api/tema/:id', TemaControllers.updateTema);
 
+//admin router 
 
-//skins e tabuleiros -  [] s3 e [X] rds
+router.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'html', 'index.html'));
+});
 
+// upload de imagens (skin carro)
 
-//temas
+router.get('/upload/skin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'html', 'teste.html'));
+});
 
+router.post('/upload/skin', ImgUpload.UploadFiles('image'), (req, res) => {
+    console.log('', req.body);
+    console.log('', req.files);
+    res.send({});
+});
 
+ 
 module.exports = router;
