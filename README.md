@@ -55,3 +55,32 @@ https://www.figma.com/file/zrfygafUcHBCc2I6Ea66m8/JOGO-DA-ON%C3%87A?node-id=4-67
 https://www.figma.com/file/lirMVMoYpfZita4FG2b7Jp/CRUD?node-id=0-1&t=Wmu22dLC5KMH7KLd-0
 http://www.mae.ufpr.br/downloads/atividade_jogo_da_onca.pdf
 https://dev.azure.com/matheusfagundes2/Jogo_da_on%C3%A7a/_wiki/wikis
+https://ludopedia-anexos.nyc3.digitaloceanspaces.com/jogo_da_onca_regras_jogo_da_onca_2016_89601.pdf
+
+## TESTAR A API 
+
+Dependências locais
+Então após baixar o repositório, deve se entrar na pasta api, não se esqueça de instalar as dependências locais do projeto:
+
+```
+npm install
+```
+
+Rodar o projeto
+Para rodar o projeto localmente, basta rodar o comando abaixo:
+
+```
+npm run dev
+```
+
+Isto irá automaticamente rodar a API no seguinte endereço:
+
+```
+http://localhost:3333/
+http://localhost:3333/api/user
+```
+
+Observações:
+
+Para derrubar todos os serviços, basta utilizar as teclas CTRL+C, que é o padrão dos terminais para matar processos.
+Você pode conferir o endereço dos outros serviços dentro do arquivo .env encontrado na raiz do projeto, como por exemplo o endereço e credenciais do Banco de Dados
