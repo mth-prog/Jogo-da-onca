@@ -1,9 +1,9 @@
 require('dotenv').config();
 const app = require('./app.js');
-const https = require('https');
+const http = require('http');
 
 const PORT = process.env.PORTA;
-const server = https.createServer(app);
+const server = http.createServer(app);
 
 
 server.listen(PORT, () => console.log('running'));
