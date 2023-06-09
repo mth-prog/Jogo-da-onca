@@ -15,9 +15,15 @@ const getAll = async () => {
 
 //cria novos usuarios
 const create = async (user) => {
+
+    const { Nome, IsActive, Login, Senha, Email } = user;
+
+    const str_query = `INSERT INTO JOGADOR (Nome, IsActive, Login, Senha, Email) VALUES ('${Nome}', ${IsActive}, '${Login}', '${Senha}', '${Email}')`;
+
     const { Nome, IsActive, Login, Senha } = user;
 
     const str_query = `INSERT INTO JOGADOR (Nome, IsActive, Login, Senha) VALUES ('${Nome}', ${IsActive}, '${Login}', '${Senha}')`;
+
     const connect = await pool.connect();
     const createdUser = await connect.query(str_query);
 
@@ -36,7 +42,11 @@ const deleteUser = async (id) => {
 
 const updateUser = async (id, User) => {
     
+
+    const { Nome, IsActive, Login, Senha, Email } = User;
+
     const { Nome, IsActive, Login, Senha } = User;
+
 
     var query = 'UPDATE JOGADOR SET';
     var str_query;
@@ -62,6 +72,14 @@ const updateUser = async (id, User) => {
         var qr_Senha = `Senha = '${Senha}'`;  
         str_query = `${str_query}, ${qr_Senha}`;
     }
+
+
+    if (Email != '') {
+        var qr_Email = `Email = '${Email}'`;  
+        str_query = `${str_query}, ${qr_Email}`;
+    }
+
+
         
     // colocando o where 
     const final_str = `${str_query} WHERE id = ${id}`;
@@ -73,9 +91,18 @@ const updateUser = async (id, User) => {
 };
 
 
+const getEmailUser = async (email) => {
+
+    const str_query = `SELECT * FROM JOGADOR WHERE email = '${email}'`;
+    const connect = await pool.connect();
+    const EmailUser = await connect.query(str_query);
+    return EmailUser.rows;
+};
+
 module.exports = {
     getAll,
     create,
     deleteUser,
-    updateUser
+    updateUser,
+    getEmailUser
 };
