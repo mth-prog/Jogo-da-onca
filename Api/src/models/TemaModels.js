@@ -6,6 +6,9 @@ aqui se cria todas as funçoes que interage diretamente com o banco de dados
 */
 
 const pool = require('./connectionBd');
+const S3 = require('../models/s3Connection');
+const { PutObjectCommand, GetObjectCommand } = require('@aws-sdk/client-s3');
+const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 
 //mostra todas as skins 
 const getAll = async () => {
@@ -19,11 +22,18 @@ const getAll = async () => {
 /* 
 aqui se coloca só as urls ou onde as skins estao guardadas
 */
-const create = async (Tema) => {
-    const { Nome, TableColor, ScoreColor } = Tema;
+const create = async (Type, ArrayBuffer, NomeTema) => {
 
-    const str_query = `INSERT INTO TEMA (Nome, Cor_tabuleiro, Cor_Ponto) 
-                        VALUES ('${Nome}', '${TableColor}', '${ScoreColor}')`;
+    const { originalname } = ArrayBuffer[0];
+    const Files = JsonToS3(ArrayBuffer, Type);
+    //envia para o s3 
+    UploadFiles(Files[0]);
+
+    //pegar o url da imagem que subiu para o banco
+    const urlFiles = await getUrlFile(Files[0]);
+    
+    const str_query = `INSERT INTO Skin_teste (Nome, Tipo, Url, NomeTema) 
+                        VALUES ('${originalname}', '${Type}', '${urlFiles}', '${NomeTema}')`;
 
     const connect = await pool.connect();
     const createdUser = await connect.query(str_query);
@@ -74,6 +84,32 @@ const updateUser = async (id, Tema) => {
     return updateUser;
 };
 
+
+const UploadFiles = async (FilesArray) => {
+    const command = new PutObjectCommand(FilesArray);
+    S3.send(command);
+};
+
+const JsonToS3 = (BufferArray, folder) => {
+    const arrayS3= [];
+    for (let i = 0; i < BufferArray.length; i++) {
+        let JsonBody = {
+            Bucket: 'onca-game',
+            Key: `${folder}/` + BufferArray[i].originalname, 
+            Body: BufferArray[i].buffer,
+        };
+        arrayS3.push(JsonBody);
+    }
+    return arrayS3;
+};
+
+const getUrlFile  = async (FilesToUrls) => {
+    //FilesToUrls = json 
+    const command = new GetObjectCommand(FilesToUrls);
+    const SignedUrl = await getSignedUrl(S3, command, {expiresIn: 604800});
+
+    return SignedUrl;
+};
 
 module.exports = {
     getAll,

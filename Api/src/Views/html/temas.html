@@ -28,13 +28,13 @@
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="jogadores.html">Jogadores</a>
+                    <a class="nav-link" href="/jogadores.html">Jogadores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="temas.html">Tema / Skins</a>
+                    <a class="nav-link active" aria-current="page" href="/temas.html">Tema / Skins</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="anuncios.html">Anúncios</a>
+                    <a class="nav-link" href="/anuncios.html">Anúncios</a>
                 </li>
             </ul>
         </div>
@@ -62,65 +62,44 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <form action="">
+                            <form action="/api/temas" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col border-end">
                                         <h5 class="text-center">Tema</h5>
                                         <div class="mb-3">
                                             <label for="inpNomeTema" class="form-label">* Nome do tema</label>
-                                            <input type="text" class="form-control" id="inpNomeTema" required
-                                                aria-describedby="nomeTemaHelp" />
-                                            <div id="nomeTemaHelp" class="form-text">
-                                                *O nome do tema deve ser
-                                                único
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="inpCorTabuleiro" class="form-label">Cor de fundo do
-                                                tabuleiro</label>
-                                            <input type="color" class="form-control" id="inpCorTabuleiro" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="inpCorPonto" class="form-label">Cor das posições</label>
-                                            <input type="color" class="form-control" id="inpCorPonto" />
+                                            <input type="text" class="form-control" id="inpNomeTema" name="NomeTema" />
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <h5 class="text-center">Skin</h5>
+                                        <h5 class="text-center">Skin do tema</h5>
                                         <div class="row">
                                             <div class="col-10">
                                                 <div class="mb-3">
-                                                    <label for="inpSkinCachorro" class="form-label">* Skin
-                                                        "Cachorro"</label>
-                                                    <input type="file" required class="form-control"
-                                                        id="inpSkinCachorro" />
+                                                    <label for="inpSkinCachorro" class="form-label">Skin Cachorro</label>
+                                                    <input type="file" class="form-control" id="inpSkinCachorro" name="Dog" />
                                                 </div>
                                             </div>
-                                            <div class="col d-flex align-items-center">
-                                                <img src="" class="skinPreview rounded-circle" alt=""
-                                                    id="cachorroPreview" />
-                                            </div>
+                                            <!--div class="col d-flex align-items-center">
+                                                <img src="" class="skinPreview rounded-circle" alt="" id="cachorroPreview" />
+                                            </div!-->
                                         </div>
                                         <div class="row">
                                             <div class="col-10">
                                                 <div class="mb-3">
-                                                    <label for="inpSkinOnca" class="form-label">* Skin
-                                                        "Onça"</label>
-                                                    <input type="file" required class="form-control" id="inpSkinOnca" />
+                                                    <label for="inpSkinOnca" class="form-label">Skin Onça</label>
+                                                    <input type="file" class="form-control" id="inpSkinOnca" name="Onca"/>
                                                 </div>
                                             </div>
-                                            <div class="col d-flex align-items-center">
-                                                <img src="" class="skinPreview rounded-circle" alt=""
-                                                    id="oncaPreview" />
-                                            </div>
+                                            <!--div class="col d-flex align-items-center">
+                                                <img src="" class="skinPreview rounded-circle" alt="" id="oncaPreview" />
+                                            </div!-->
                                         </div>
-                                        <div class="row">
+                                        <!--div class="row">
                                             <div class="col-10">
                                                 <div class="mb-3">
-                                                    <label for="inpFundoTabuleiro" class="form-label">* Fundo do
-                                                        Tabuleiro</label>
-                                                    <input type="file" required class="form-control"
-                                                        id="inpFundoTabuleiro" />
+                                                    <label for="inpFundoTabuleiro" class="form-label">Fundo do Tabuleiro</label>
+                                                    <input type="file" required class="form-control" id="inpFundoTabuleiro" />
                                                 </div>
                                             </div>
                                             <div class="col d-flex align-items-center">
@@ -130,22 +109,18 @@
                                         <div class="row">
                                             <div class="col-10">
                                                 <div class="mb-3">
-                                                    <label for="inpFundoPlacar" class="form-label">* Fundo do
-                                                        Placar</label>
-                                                    <input type="file" required class="form-control"
-                                                        id="inpFundoPlacar" />
+                                                    <label for="inpFundoPlacar" class="form-label">Fundo do Placar</label>
+                                                    <input type="file" required class="form-control" id="inpFundoPlacar" />
                                                 </div>
                                             </div>
                                             <div class="col d-flex align-items-center">
                                                 <img src="" class="skinPreview rounded" alt="" id="placarPreview" />
                                             </div>
-                                        </div>
+                                        </div!-->
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn btn-outline-success me-md-2" type="submit">
-                                        Salvar
-                                    </button>
+                                    <button class="btn btn-outline-success me-md-2" type="submit">Enviar</button>
                                 </div>
                             </form>
                         </div>

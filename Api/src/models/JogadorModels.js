@@ -15,9 +15,9 @@ const getAll = async () => {
 
 //cria novos usuarios
 const create = async (user) => {
-    const { UserToCreate } = user;
+    const { Nome, IsActive, Login, Senha, Email } = user;
 
-    const str_query = `INSERT INTO JOGADOR (username) VALUES ('${UserToCreate}')`;
+    const str_query = `INSERT INTO JOGADOR (Nome, IsActive, Login, Senha, Email) VALUES ('${Nome}', ${IsActive}, '${Login}', '${Senha}', '${Email}')`;
     const connect = await pool.connect();
     const createdUser = await connect.query(str_query);
 
@@ -29,7 +29,7 @@ const create = async (user) => {
 // [ ] ver se é melhor por nome
 
 const deleteUser = async (id) => {
-    const str_query = `DELETE FROM JOGADOR WHERE user_id = ${id}`;
+    const str_query = `DELETE FROM JOGADOR WHERE id = ${id}`;
     const connect = await pool.connect();
     const deleteUser = await connect.query(str_query);
 
@@ -38,18 +38,60 @@ const deleteUser = async (id) => {
 
 const updateUser = async (id, User) => {
     
-    const { UpdateName } = User;
+    const { Nome, IsActive, Login, Senha, Email } = User;
 
-    const str_query = `UPDATE JOGADOR SET username = '${UpdateName}' WHERE user_id = ${id}`;
+    var query = 'UPDATE JOGADOR SET';
+    var str_query;
+    
+    // melhorar essa merda
+
+    if (Nome != '' ) {
+        var qr_nome = `NOME = '${Nome}'`;
+        str_query = `${query} ${qr_nome}`;
+    }
+
+    if (IsActive != '') {
+        var qr_IsActive = `IsActive = ${IsActive}`;
+        str_query = `${str_query}, ${qr_IsActive}`;
+    }
+        
+    if (Login !=  '') {
+        var qr_Login = `Login = '${Login}'`;  
+        str_query = `${str_query}, ${qr_Login}`;
+    }
+
+    if (Senha != '' ) {
+        var qr_Senha = `Senha = '${Senha}'`;  
+        str_query = `${str_query}, ${qr_Senha}`;
+    }
+
+    if (Email != '') {
+        var qr_Email = `Email = '${Email}'`;  
+        str_query = `${str_query}, ${qr_Email}`;
+    }
+        
+    // colocando o where 
+    const final_str = `${str_query} WHERE id = ${id}`;
+    
     const connect = await pool.connect();
-    const updateUser = await connect.query(str_query);
+    const updateUser = await connect.query(final_str);
     return updateUser;
+
 };
 
+
+const getEmailUser = async (email) => {
+
+    const str_query = `SELECT * FROM JOGADOR WHERE email = '${email}'`;
+    const connect = await pool.connect();
+    const EmailUser = await connect.query(str_query);
+    return EmailUser.rows;
+};
 
 module.exports = {
     getAll,
     create,
     deleteUser,
-    updateUser
+    updateUser,
+    getEmailUser
 };
