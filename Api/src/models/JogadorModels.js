@@ -40,10 +40,7 @@ const updateUser = async (id, User) => {
     
 
     const { Nome, IsActive, Login, Senha, Email } = User;
-
-    const { Nome, IsActive, Login, Senha } = User;
-
-
+    
     var query = 'UPDATE JOGADOR SET';
     var str_query;
     
@@ -75,8 +72,6 @@ const updateUser = async (id, User) => {
         str_query = `${str_query}, ${qr_Email}`;
     }
 
-
-        
     // colocando o where 
     const final_str = `${str_query} WHERE id = ${id}`;
     
