@@ -20,10 +20,6 @@ const create = async (user) => {
 
     const str_query = `INSERT INTO JOGADOR (Nome, IsActive, Login, Senha, Email) VALUES ('${Nome}', ${IsActive}, '${Login}', '${Senha}', '${Email}')`;
 
-    const { Nome, IsActive, Login, Senha } = user;
-
-    const str_query = `INSERT INTO JOGADOR (Nome, IsActive, Login, Senha) VALUES ('${Nome}', ${IsActive}, '${Login}', '${Senha}')`;
-
     const connect = await pool.connect();
     const createdUser = await connect.query(str_query);
 
