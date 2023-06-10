@@ -2,15 +2,29 @@
 require('dotenv').config();
 const { Pool } = require('pg');
 
+// const pool = new Pool({
+//     host: process.env.HOST ,
+//     user: process.env.USER,
+//     password:process.env.PASSWORD ,
+//     port: process.env.PORT,
+//     database: process.env.DATABASE,
+//     ssl: {
+//         require: JSON.parse(process.env.SSL_REQUIRE), 
+//         rejectUnauthorized: JSON.parse(process.env.REJECT_UNAUTHORIZED)
+//     }
+    
+// });
+
+
 const pool = new Pool({
-    host: process.env.HOST ,
-    user: process.env.USER,
-    password:process.env.PASSWORD ,
-    port: process.env.PORT,
-    database: process.env.DATABASE,
+    host: 'jogodaonca.cveloztfcqty.us-east-1.rds.amazonaws.com' ,
+    user: 'MasterOnca',
+    password: 'onca1020' ,
+    port: '5432',
+    database: 'JogoOnca',
     ssl: {
-        require: JSON.parse(process.env.SSL_REQUIRE), 
-        rejectUnauthorized: JSON.parse(process.env.REJECT_UNAUTHORIZED)
+        require: true, 
+        rejectUnauthorized: false
     }
     
 });
