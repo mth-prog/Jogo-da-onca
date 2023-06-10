@@ -23,23 +23,23 @@ const router = express.Router();
 // Views
 
 router.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'html', 'index.html'));
+    res.sendFile(path.join(__dirname, 'Views', 'html', 'index.html'));
 });
 
 router.get('/skin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'html', 'skins.html'));
+    res.sendFile(path.join(__dirname, 'Views', 'html', 'skins.html'));
 });
 
 router.get('/temas.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'html', 'temas.html'));
+    res.sendFile(path.join(__dirname, 'Views', 'html', 'temas.html'));
 });
 
 router.get('/jogadores.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'html', 'jogadores.html'));
+    res.sendFile(path.join(__dirname, 'Views', 'html', 'jogadores.html'));
 });
 
 router.get('/anuncios.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'html', 'anuncios.html'));
+    res.sendFile(path.join(__dirname, 'Views', 'html', 'anuncios.html'));
 });
 
 //CRUD JOGADOR
