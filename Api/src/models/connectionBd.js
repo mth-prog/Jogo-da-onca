@@ -29,6 +29,19 @@ const pool = new Pool({
     
 });
 
+// const pool = new Pool({
+//     host: process.env.HOST ,
+//     user: process.env.USER,
+//     password:process.env.PASSWORD ,
+//     port: process.env.PORT,
+//     database: process.env.DATABASE,
+//     ssl: {
+//         require: JSON.parse(process.env.SSL_REQUIRE), 
+//         rejectUnauthorized: JSON.parse(process.env.REJECT_UNAUTHORIZED)
+//     }
+    
+// });
+
 
 // const pool = new Pool({
 //     host: 'localhost' ,

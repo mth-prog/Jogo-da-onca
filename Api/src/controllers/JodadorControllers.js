@@ -27,12 +27,15 @@ const updateUser = async (req, res) => {
     const { id } = req.params;
     const update = await CrudModels.updateUser(id, req.query);
     return res.status(200).json(update);
+
 };
 
 const getEmail = async (req, res) => {
     const { email } = req.params;
     const resultEmail = await CrudModels.getEmailUser(email);
     return res.status(200).json(resultEmail);
+
+
 };
 
 
