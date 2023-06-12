@@ -3,7 +3,6 @@ irá conter todas as rotas da api
 
 sendo que as funcoes do das rotas ira ficar no controler que irá acessar o banco 
 
-- [] criar middleware para verificar se esta passando corretamente para o banco
 
 */
 
@@ -13,7 +12,8 @@ const express = require('express');
 //controller
 const JogadorControllers = require('./controllers/JodadorControllers');
 const TemaControllers = require('./controllers/TemaControllers');
-const SkinControllers = require('./controllers/SkinControllers');
+const LoginControllers = require('./controllers/LoginControllers');
+// const SkinControllers = require('./controllers/SkinControllers');
 //middleware
 const ImgUpload = require('./middleware/UploadSkinsMiddleware');
 
@@ -59,17 +59,13 @@ router.post('/api/temas',  ImgUpload.UploadFiles([
 router.delete('/api/temas/:id', TemaControllers.deleteTema);
 router.put('/api/temas/:id', TemaControllers.updateTema);
 
-//CRUD SKIN
-router.get('/api/skin', SkinControllers.getAllSkin);
+// //CRUD SKIN
+// router.get('/api/skin', SkinControllers.getAllSkin);
+// router.delete('/api/skin/:id', SkinControllers.deleteSkin);
+// router.put('/api/tema/:id', SkinControllers.updateSkin);
 
-// const fieldsToUplaod = ImgUpload.UploadFiles({name: 'inpDog', maxCount: 1});
-
-// router.post('/api/skin', fieldsToUplaod, SkinControllers.createSkin);
-
-router.delete('/api/skin/:id', SkinControllers.deleteSkin);
-router.put('/api/tema/:id', SkinControllers.updateSkin);
-
-// router.post('/upload/skin', ImgUpload.UploadFiles('anexo'), );
+//Login 
+router.get('/api/login', LoginControllers.getLogin);
 
 // email
 
