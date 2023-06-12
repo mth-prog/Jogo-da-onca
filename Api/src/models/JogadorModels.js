@@ -13,6 +13,13 @@ const getAll = async () => {
     return res.rows;
 };
 
+const getById = async (id) => {
+    const select = await pool.connect();
+    const res = await select.query(`SELECT * FROM JOGADOR WHERE Id = ${id}`);
+    return res.rows;
+};
+
+
 //cria novos usuarios
 const create = async (user) => {
 
@@ -95,5 +102,6 @@ module.exports = {
     create,
     deleteUser,
     updateUser,
-    getEmailUser
+    getEmailUser,
+    getById
 };

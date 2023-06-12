@@ -13,7 +13,7 @@ const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 //mostra todas as skins 
 const getAll = async () => {
     const select = await pool.connect();
-    const res = await select.query('SELECT * FROM TEMA');
+    const res = await select.query('SELECT * FROM Skin_teste');
     return res.rows;
 };
 
@@ -22,18 +22,18 @@ const getAll = async () => {
 /* 
 aqui se coloca só as urls ou onde as skins estao guardadas
 */
-const create = async (Type, ArrayBuffer, NomeTema) => {
+const create = async (ArrayBuffer, NomeTema) => {
 
-    const { originalname } = ArrayBuffer[0];
-    const Files = JsonToS3(ArrayBuffer, Type);
-    //envia para o s3 
-    UploadFiles(Files[0]);
+    // // const { originalname } = ArrayBuffer[0];
+    const Files = JsonToS3V2(ArrayBuffer);
+    // //envia para o s3 
+    await UploadFiles(Files);
 
     //pegar o url da imagem que subiu para o banco
-    const urlFiles = await getUrlFile(Files[0]);
+    const urlFiles = await getUrlFile(Files);
     
-    const str_query = `INSERT INTO Skin_teste (Nome, Tipo, Url, NomeTema) 
-                        VALUES ('${originalname}', '${Type}', '${urlFiles}', '${NomeTema}')`;
+    const str_query = `INSERT INTO Skin_teste (Tema, Url_cachorro, url_onca) 
+                        VALUES ('${NomeTema}', '${urlFiles[0]}', '${urlFiles[1]}')`;
 
     const connect = await pool.connect();
     const createdUser = await connect.query(str_query);
@@ -45,7 +45,7 @@ const create = async (Type, ArrayBuffer, NomeTema) => {
 // [ ] ver se é melhor por nome
 
 const deleteUser = async (id) => {
-    const str_query = `DELETE FROM TEMA WHERE id = ${id}`;
+    const str_query = `DELETE FROM Skin_teste WHERE id = ${id}`;
     const connect = await pool.connect();
     const deleteUser = await connect.query(str_query);
 
@@ -86,29 +86,42 @@ const updateUser = async (id, Tema) => {
 
 
 const UploadFiles = async (FilesArray) => {
-    const command = new PutObjectCommand(FilesArray);
-    S3.send(command);
+
+    for (var i = 0; i < FilesArray.length; i++) {
+        const command = new PutObjectCommand(FilesArray[i]);
+        S3.send(command);
+    }
 };
 
-const JsonToS3 = (BufferArray, folder) => {
-    const arrayS3= [];
-    for (let i = 0; i < BufferArray.length; i++) {
+
+const JsonToS3V2 = (Buffer) => {
+    const arrayS3 = [];
+    const chaves = Object.keys(Buffer);
+    for (let i = 0; i < chaves.length; i++) {
         let JsonBody = {
             Bucket: 'onca-game',
-            Key: `${folder}/` + BufferArray[i].originalname, 
-            Body: BufferArray[i].buffer,
+            Key: `${chaves[i]}/` + Buffer[chaves[i]][0].originalname, 
+            Body: Buffer[chaves[i]][0].buffer
         };
+
         arrayS3.push(JsonBody);
     }
     return arrayS3;
 };
 
-const getUrlFile  = async (FilesToUrls) => {
-    //FilesToUrls = json 
-    const command = new GetObjectCommand(FilesToUrls);
-    const SignedUrl = await getSignedUrl(S3, command, {expiresIn: 604800});
 
-    return SignedUrl;
+
+const getUrlFile  = async (FilesToUrls) => {
+    //FilesToUrls = json
+    const urlsFiles = [];
+    
+    for (var i = 0; i < FilesToUrls.length; i++) {
+        const command = new GetObjectCommand(FilesToUrls[i]);
+        const SignedUrl = await getSignedUrl(S3, command, {expiresIn: 604800});
+        urlsFiles.push(SignedUrl);
+    }
+
+    return urlsFiles;
 };
 
 module.exports = {

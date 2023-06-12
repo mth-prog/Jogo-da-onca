@@ -8,6 +8,13 @@ const getAll = async (_req, res) => {
     const crud = await CrudModels.getAll();
     return res.status(200).json(crud);
 };
+
+const getById = async (req, res) => {
+    const { id } = req.params;
+    const crud = await CrudModels.getById(id);
+    return res.status(200).json(crud);
+};
+
 //createUser fazer para formulario de cadastro de jogadores novos e fazer o request por  body
 const createUser = async (req, res) => {
     const create = await CrudModels.create(req.query);
@@ -44,5 +51,6 @@ module.exports = {
     createUser,
     deleteUser,
     updateUser,
-    getEmail
+    getEmail,
+    getById
 };
