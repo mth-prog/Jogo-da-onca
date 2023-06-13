@@ -1,5 +1,5 @@
 function fazerRequisicao() {
-    fetch('http://44.204.47.153:3333/api/user')
+    fetch('https://api-jdo-h6kx.onrender.com/api/user')
         .then(response => response.json())
         .then(data => preencherTabela(data)) 
         .catch(error => console.error('Erro:', error));

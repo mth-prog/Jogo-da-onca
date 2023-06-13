@@ -14,7 +14,7 @@ const createTema = async (req, res) => {
 
     const { NomeTema } = req.body;
     await TemaModels.create(req.files, NomeTema);
-    return res.status(200).send('<script>location.reload();</script>');
+    return res.status(204).send();
 };
 
 //delete usar por parametro ou url

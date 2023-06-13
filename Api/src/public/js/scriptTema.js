@@ -1,5 +1,5 @@
 function fazerRequisicao() {
-    fetch('http://44.204.47.153:3333/api/temas')
+    fetch('https://api-jdo-h6kx.onrender.com/api/temas')
         .then(response => response.json())
         .then(data => preencherTabela(data)) 
         .catch(error => console.error('Erro:', error));
@@ -62,7 +62,7 @@ function BotaoExcluir(id) {
 }
 
 function excluirItem(id) {
-    var url = 'http://localhost:3333/api/temas/' + id;
+    var url = 'https://api-jdo-h6kx.onrender.com/api/temas/' + id;
 
     fetch(url, {
         method: 'DELETE'
